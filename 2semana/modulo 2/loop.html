@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+    // Preencher o canvas de quadradinhos, para isso teriamos que repetir  'desenhaQuadrado(100, 0, 'green');' várias vezes, não sendo viável.
+    //percebemos um padrão na repetição, que a coordenada 'x' tem que ser incrementada em 50 em 50
+    //Teremos que criar uma estrutura de repetição, os laços, e um deles é o 'while'
+
+        function desenhaQuadrado(x, y, cor) {
+
+            var tela = document.querySelector('canvas');
+            var pincel = tela.getContext('2d');
+
+            pincel.fillStyle = cor;
+            pincel.fillRect(x, y, 50, 50);
+            pincel.strokeStyle = 'black';
+            pincel.strokeRect(x, y, 50, 50);
+
+        }
+/*
+        var x = 0; // Inicializando a variável e assim podemos colocar uma condição dentro do () do laço while.
+        while(x < 600){ //Enquanto a condição for verdadeira, temos que mudar o valor de 'x' para isso criaremos uma variável
+            desenhaQuadrado(x, 0, 'green'); //coordenada y está 0
+            desenhaQuadrado(x, 50, 'red'); //coordenada y está 50
+            desenhaQuadrado(x, 100, 'blue'); //coordenada y está 100
+            x = x + 50; // Irá calcular enquanto for verdadeira, quando não for mais termonará o processo de repetição
+        } */
+
+// ********* Usaremos a extrutura de repetição FOR *********//
+
+// Lembrando que a estrutura de repetição do FOR permite que a variável seja inicializado dentro das  ()
+        for(var x = 0; x < 600; x = x + 50){  // teremos a variável; a condição ; e o incremento da variável 
+            desenhaQuadrado(x, 0, 'green'); //coordenada y está 0
+        }
+
+
+</script>
+      
+    
+    </body>
+</html>

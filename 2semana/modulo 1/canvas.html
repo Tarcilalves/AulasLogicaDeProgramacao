@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        //document executar a função querySelector() para pegar este <canvas> e passá-lo como valor na variável tela.
+            
+        var tela = document.querySelector("canvas"); // é uma função
+        //precisamos informar à tela qual o tipo de pincel, utilizaremos o getContext() e passaremos o 2d como parâmetro:
+        var pincel = tela.getContext('2d'); // é uma função 
+
+        // FillStyle não é uma função, ela recebe uma atribuição um valor, que chamamos de propriedade (lembra uma variável)
+        pincel.fillStyle = "lightgrey"
+
+
+        //Chamamos o pincel com o operador '.', peencher retângulo (fill), enquanto rect é a abreviação de retângulo: 
+        pincel.fillRect(0, 0, 600, 400); // é uma função
+
+        pincel.fillStyle = 'green'; //retângulo verde do lado esquerdo 
+        pincel.fillRect(0, 0, 200, 400);
+
+        pincel.fillStyle = 'red'; //retângulo vermelho do lado direito 
+        pincel.fillRect(400, 0, 200, 400);
+
+        //Para a criação desta forma geométrica, não utilizaremos o fillRect, queremos começar um caminho.
+        // 'Begin', e caminho é path. Portanto, utilizaremos um begin path para dizermos qual será a direção seguida por nosso pincel. 
+        //O primeiro passo é utilizar o fillStyle, com a cor amarela:
+
+        // Chamamos estas instruções que as bibliotecas (APIs) deixam disponíveis para usarmos em nossos programas de métodos.
+
+        pincel.fillStyle = 'yellow';
+        pincel.beginPath();
+        pincel.moveTo(300, 200); // ponto inicial do nosso triângulo, nossas coordenadas  no ponto 300, da coordenada X (que mede 600), e 200 na Y 
+        pincel.lineTo(200, 400); // o ponto de encontro entre o verde e o cinza, portanto, 200 no eixo X, e 400 no eixo Y
+        pincel.lineTo(400, 400); // O próximo movimento criará uma linha horizontal, do ponto em que o cinza encontra o vermelho, de coordenadas 400 (X), e 400 (Y):
+        pincel.fill(); //comando para que o programa preencha esta forma, que é o pincel.fill():
+
+        //Um triângulo é um polígono de três lados, mas enquanto o programa receber instruções sucessivas 
+        //para traçar linhas (com lineTo()) e forem dadas as coordenadas corretas em cada uma, é possível 
+        //desenhar e preencher polígonos com a quantidade de lados que quisermos.
+
+        //Cada método existe para desenhar uma forma diferente, e cada um deles pode receber informações diferentes, não apenas coordenadas.
+
+        //Um triângulo pode ter diversas aberturas de ângulos, por exemplo, 
+        //então devemos usar um método que permita traçar o ponto inicial e final de cada um dos lados.
+
+
+
+    
+    </script>
+    
+</body>
+</html>
+
+

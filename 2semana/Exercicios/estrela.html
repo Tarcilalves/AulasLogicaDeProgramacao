@@ -1,0 +1,39 @@
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase){
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+
+//teremos um for() dentro de outro, sendo que o primeiro é responsável por criar a primeira, segunda e terceira linhas. 
+//Já o for() que está inserido nele é responsável por repetir as colunas. 
+//Para cada linha criada pelo primeiro, o segundo imprimirá 10 colunas, 
+//criando assim 3 linhas com 10 asteriscos cada, como gostaríamos. 
+//Salvaremos o programa e recarregaremos a página, após o qual obteremos o seguinte resultado:
+
+
+    for(var linha = 1; linha <= 3; linha++) {
+
+        for(var coluna = 1; coluna <= 10; coluna++) {
+            document.write("*");
+        }
+        pulaLinha();
+    }
+
+    //Repetições aninhadas em JavaScript ocorrem quando você usa uma ou mais estruturas de repetição dentro do corpo de outra estrutura de repetição. Isso é útil quando você precisa iterar sobre uma matriz multidimensional ou executar uma tarefa com base em todas as combinações possíveis de vários conjuntos de dados.
+
+//Ao usar repetições aninhadas, é importante lembrar que cada loop interno será executado completamente antes de retornar ao loop externo. Isso significa que, se você tiver dois loops aninhados, o loop interno será executado completamente para cada iteração do loop externo. Além disso, a complexidade do seu algoritmo pode aumentar exponencialmente à medida que você adiciona mais loops aninhados, o que pode levar a uma diminuição no desempenho do seu código.
+
+//Por exemplo, o seguinte código usa repetições aninhadas para iterar sobre uma matriz bidimensional e calcular a soma de todos os seus elementos:
+//Este exemplo usa dois loops for aninhados para iterar sobre cada elemento da matriz e calcular sua soma. O loop externo itera sobre as linhas da matriz, enquanto o loop interno itera sobre as colunas de cada linha.
+
+//Em geral, as repetições aninhadas podem ser poderosas e úteis em certos casos, mas devem ser usadas com moderação para garantir um bom desempenho e evitar a complexidade desnecessária do código. É importante encontrar um equilíbrio entre a funcionalidade e a simplicidade do seu código.
+
+</script>

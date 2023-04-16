@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+
+ /*   Na primeira aula vimos como desenhar linhas para, por exemplo, criar um esquadro. 
+    Entendemos que é preciso chamar a função beginPath e definir cada ponto do triângulo. 
+    Isso dá bastante trabalho e para quem não conhece tão bem a API até pode ser complicado!
+    Repare que é muito mais fácil criar um retângulo, basta chamar fillRect. 
+    Que tal criar uma função desenhaTriangulo que recebe as coordenadas dos 3 pontos? Seria muito mais fácil, não?  */
+
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        function desenhaEsquadro(xa, ya, xc, yc, cor) {
+
+            //***** ESQUADRO PRETO  *****//
+    
+/* Nesse tipo de triângulo, basta saber os pontos A e C para descobrir o B! 
+Repare que o X do A também é o X do B, e o Y do C também é o Y do B. */
+
+        pincel.fillStyle = cor
+        pincel.beginPath();
+        pincel.moveTo(xa, xa); //É o primeiro ponto do pincel
+        pincel.lineTo(xa, yc); 
+        pincel.lineTo(xc, yc); 
+        pincel.fill();
+
+    //***** ESQUADRO BRANCO *****//
+
+        pincel.fillStyle = "white"
+        pincel.beginPath();
+        pincel.moveTo((6 * xa + xc) / 7, (9 * ya + 5 * yc) / 14);
+        pincel.lineTo((6 * xa + xc) / 7, ( ya + 6 * yc) / 7);
+        pincel.lineTo((5 * xa + 9 * xc) / 14, (ya + 6 * yc) / 7);
+        pincel.fill();
+    
+    }
+
+    desenhaEsquadro(50, 50, 400, 400, 'black');
+
+    /* No trecho do código referente ao esquadro branco, os cálculos realizados nos argumentos da função pincel.moveTo e 
+pincel.lineTo são usados para determinar as coordenadas dos pontos necessários para desenhar o triângulo branco.
+Esses cálculos se baseiam em uma proporção em que são utilizadas as coordenadas dos pontos A e C do triângulo preto, 
+que já foram definidos anteriormente. Para determinar a coordenada x do ponto superior do triângulo branco, 
+por exemplo, é utilizada a fórmula (6 * xa + xc) / 7, que indica que a coordenada x deve estar entre os pontos xa e xc, 
+mas mais próxima de xa (pois o coeficiente de xa é maior). De forma similar, para determinar a coordenada y do ponto direito
+do triângulo branco, é utilizada a fórmula (ya + 6 * yc) / 7, indicando que a coordenada y deve estar entre ya e yc,
+mas mais próxima de yc (pois o coeficiente de yc é maior). Esses cálculos são baseados em proporções e podem ser ajustados 
+de acordo com as dimensões e posições dos pontos A e C para desenhar o triângulo branco na posição desejada. */
+
+
+     
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+
+    //agora é hora de desenhar uma outra figura. Nesse exercício a tarefa é desenhar um esquadro:
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+//Repare que isso é nada mais do que dois triângulos, um dentro do outro. 
+//Lembrando também que desenhar um triângulo é diferente de um retângulo, 
+//pois é preciso desenhar linha por linha. Em outras palavras, a API é diferente!
+
+//Para desenhar é preciso inicializar um path e mover o pincel para uma posição:
+
+     //***** ESQUADRO PRETO  *****//
+
+        pincel.fillStyle = "black"
+        pincel.beginPath();
+        pincel.moveTo(50, 50); //É o primeiro ponto do pincel
+//A partir daí podemos desenhar uma linha:
+        pincel.lineTo(50, 400); //Ele vai descer - vertical
+        pincel.lineTo(400, 400); //Depois vai reto - horinzonral
+//Tendo todas as linhas desenhadas, podemos preencher a figura:
+        pincel.fill();
+
+    //***** ESQUADRO BRANCO *****//
+
+        pincel.fillStyle = "white"
+        pincel.beginPath();
+        pincel.moveTo(100, 175);
+//A partir daí podemos desenhar uma linha:
+        pincel.lineTo(100, 350);
+        pincel.lineTo(275, 350);
+//Tendo todas as linhas desenhadas, podemos preencher a figura:
+        pincel.fill();
+
+//Parabéns! Você aplicou as coordenadas corretamente e conseguiu completar o desafio! 
+//Repare que essa API também serve para desenhar outras figuras geométricas, não só triângulos, 
+//até podemos desenhar retângulos. Tudo depende para onde você move o pincel!
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+<script>
+
+//DESAFIOS
+// **** 1 - Você pode criar uma função sorteia que recebe um número n e sorteia um número entre 0 a n, 
+//retornando esse valor. Dessa forma, em vez de escrever var numeroPensado = Math.round(Math.random() * n);, 
+//você escreveria var numeroPensado = sorteia(n);. Faça essa modificação, criando a nova função e utilize-a. ***//
+
+// *** 2 - Faça com que seu jogo mostre, quando o usuário errar a tentativa, 
+// se o número que ele chutou era maior ou menor ao número pensado pelo programa. ***//
+
+function pulaLinha() {
+    document.write("<br>");
+}
+
+function mostra(frase) {
+    document.write(frase);
+    pulaLinha();
+}
+
+//Para criar a função sorteia que recebe um número n e retorna um número aleatório entre 0 e n, 
+//podemos utilizar a função Math.random() do JavaScript, que gera um número aleatório entre 0 e 1. 
+//Em seguida, podemos multiplicar esse número por n e arredondá-lo para baixo utilizando a função Math.floor().
+
+function sorteia(n) {
+    return Math.round(Math.random() * 10);
+}
+
+// Exemplo de uso:
+
+    var numeroPensado = sorteia(3);
+    console.log(numeroPensado); // exibe um número aleatório entre 0 e 10
+    
+
+//Desafio 2:
+//Para mostrar ao usuário se o número que ele chutou é maior ou menor que o número pensado pelo programa, 
+//podemos utilizar estruturas condicionais para comparar os valores. 
+
+    var numeroPensado = sorteia(10); // sorteia um número entre 0 e 100
+    var tentativa = 0; // contador de tentativas
+    var acertou = false; // indica se o usuário acertou o número ou não
+
+        
+while (!acertou) {
+    var chute = parseInt(prompt("Digite um número entre 0 e 10:"));
+    tentativa++;
+
+    if (chute == numeroPensado) {
+        acertou = true;
+        mostra("Parabéns, você acertou em " + tentativa + " tentativas!");
+    } else if (chute < numeroPensado) {
+        mostra("O número pensado é maior que " + chute);
+    } else {
+        mostra("O número pensado é menor que " + chute);
+    }
+}
+
+
+
+    //No código acima, utilizamos a estrutura while para repetir o processo até que o usuário acerte o número.
+    //Dentro do loop, utilizamos a função parseInt() para converter a entrada do usuário em um número inteiro. 
+    //Em seguida, comparamos o valor digitado pelo usuário com o número pensado pelo programa e exibimos uma mensagem 
+    //indicando se o número é maior ou menor. Quando o usuário acerta o número, 
+    //a variável acertou é alterada para true e exibimos uma mensagem final com o número de tentativas realizadas.
+</script>

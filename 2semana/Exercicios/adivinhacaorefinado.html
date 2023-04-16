@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+
+// *** O OBJETIVO é que o usuário digite um número, e, ao apertar o botão, 
+//que ele seja comparado ao numeroPensado, para que se verifique se ele acertou ou errou. *** //
+
+    var segredo = 5;
+
+    // a variável pode ser qualquer nome - o nome do parâmetro dentro das () tem que ser o nome correto da tag 
+    var input = document.querySelector("input"); 
+    // criamos um função verifica para garanti que o teste não seja executado ao carregar a página. 
+    function verifica() {
+        // Para saber qual valor está sendo inserido na varável usamos input.value e assim comparar com o valor do input com a variável segredo. 
+        if(input.value == segredo) {
+
+        alert("Você ACERTOU!");
+        } else {
+
+        alert("Você ERROU!!!!!!!!");
+        }
+
+    }
+
+    var button = document.querySelector("button");
+
+    //quando for clicado, associamos a função ao botão atribuindo a função a button.onclick
+    button.onclick = verifica; //associa o verifica ao onclick
+    //Se na fução verifica for colocado os () na chamada da função, ela será executada antes mesmo de clicarmos no botão. 
+    //com o () ela não retorna nada, o valor de button.onclick será undefined. 
+
+</script>
