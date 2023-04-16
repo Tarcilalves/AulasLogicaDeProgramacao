@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<script>
+
+var dados = []; // é a sintaxe utilizada para criar uma array vazia, ou seja, um objeto que contém uma coleção ordenada de valores.
+                //Essa array pode posteriormente armazenar qualquer tipo de dado, como números, strings, objetos, entre outros.
+
+var entrada = ""; 
+
+while (entrada !== "fim") {
+  entrada = prompt("Insira um dado ou digite 'fim' para terminar:");
+
+  if (entrada !== "fim") { // condição para ecerrar o jogo
+    var dado = parseFloat(entrada);
+
+    if (isNaN(dado)) {
+      alert("Entrada inválida, tente novamente.");
+    } else {
+      dados.push(dado); //Isso adicionaria o valor "primeiro elemento" à array dados. 
+                        //Podemos acessar esse valor, por exemplo, usando a sintaxe dados[0], que retornaria o valor "primeiro elemento".
+    }
+  }
+}
+
+var soma = 0; //contador
+ // For é uma estrutura de controle de fluxo que permite executar um bloco de código repetidamente com base em uma condição.
+//esta sendo usado para percorrer a array, iterar sobre objetos, ou executar qualquer tipo de operação que precise ser repetida várias vezes.
+for (var i = 0; i < dados.length; i++) { 
+  soma += dados[i];
+}
+
+var media = dados.length > 0 ? soma / dados.length : 0;  //a propriedade .length é usada para obter o comprimento de uma string ou array.
+
+alert(`Média dos dados inseridos: ${media}`);
+
+//Este programa usa um loop while para capturar os dados inseridos pelo usuário um por vez. Quando o usuário digita "fim", o loop é interrompido 
+//e a média dos dados armazenados na lista é calculada usando um loop for e uma variável soma. A média é então exibida em um alerta.
+//O programa lida com entradas inválidas e garante que a lista não esteja vazia antes de calcular a média.
+
+//Note que este exemplo usa prompt e alert para exibir mensagens para o usuário. 
+//No entanto, você pode adaptar o código para usar elementos HTML para exibir e capturar dados se estiver trabalhando com um ambiente web.
+//Além disso, o uso de variáveis var pode ser substituído por let ou const para garantir um escopo mais preciso das variáveis.
+
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        function pulaLinha() {
+    
+            document.write("<br>");
+        }
+    
+        function mostra(frase) {
+    
+            document.write(frase);
+            pulaLinha();
+        }
+     // é a sintaxe utilizada para criar uma array vazia, ou seja, um objeto que contém uma coleção ordenada de valores.
+    //Essa array pode posteriormente armazenar qualquer tipo de dado, como números, strings, objetos, entre outros.
+        var dados = [];
+        var entrada = ""; 
+        
+        var totalGastoComEventos = 0;  //inicialização do total de gastos dentro while, dá erro e não acumula os valores para dar a média
+    
+        while(contador <= totalDeEventos) { //controle de fluxo de repetição
+            var totalDeEventos = parseInt(prompt("Informe o total de eventos"));
+    
+            if (entrada == contador) { // condição para ecerrar o jogo
+                 var dado = parseFloat(entrada); //para que as casas decimais sejam mantidas
+    
+            } else {
+            dados.push(dado); //Isso adicionaria o valor "primeiro elemento" à array dados. 
+                                //Podemos acessar esse valor, por exemplo, usando a sintaxe dados[0], que retornaria o valor "primeiro elemento".
+            }
+      }
+    
+    var contador = 1; //contador
+    for (var i = 0; i < dados.length; i++) { 
+      contador += dados[i];
+    }
+            var gasto = parseFloat(prompt("Informe total gasto com evento"));
+            totalGastoComEventos = totalGastoComEventos + gasto;
+            contador++;
+        
+    
+        var media = totalGastoComEventos / totalDeEventos;
+    
+        mostra("A média de gastos é " + media);
+
+
+//Há vários erros no código apresentado. Vou comentar cada um deles abaixo:
+
+// 1* A variável contador é usada na condição do loop while antes de ser inicializada. 
+   //É necessário inicializá-la com o valor 1 antes do loop.
+// 2* A variável totalDeEventos é usada na condição do loop while antes de ser inicializada. 
+   //É necessário solicitar ao usuário que informe o valor de totalDeEventos antes do loop.
+// 3* A variável dado é usada no trecho var dado = parseFloat(entrada);, 
+   //mas a variável entrada não foi definida antes. Provavelmente, você queria usar a variável gasto aqui, que foi definida mais adiante.
+// 4* A linha var totalGastoComEventos = 0; deveria estar dentro do loop while, 
+   //antes da linha var gasto = parseFloat(prompt("Informe total gasto com evento"));, para que o total de gastos seja acumulado corretamente.
+// 5* O loop for que calcula a soma dos gastos está somando os índices da array dados ao invés dos valores armazenados nessa array.
+   //Para corrigir isso, basta trocar contador += dados[i]; por totalGastoComEventos += dados[i];.
+// 6* Além desses erros, há um erro de lógica no trecho que verifica se o usuário digitou o valor contador para encerrar o jogo. 
+   //Essa condição sempre será falsa, já que a variável entrada nunca é atualizada dentro do loop.
+    </script>
+    
+</body>
+</html>
+

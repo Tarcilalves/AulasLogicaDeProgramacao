@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha loja</title>
+</head>
+<body>
+  <h1>Minha loja</h1>
+  <label for="valor-total">Valor total da compra:</label>
+  <input type="number" id="valor-total" name="valor-total"><br><br>
+  <button onclick="finalizarCompra('parcelar')">Parcelar</button>
+  <button onclick="finalizarCompra('a vista')">À vista</button>
+        
+        <script>
+
+            function pulaLinha() {
+
+            document.write("<br>");
+            document.write("<br>");
+            }
+
+            function mostra(frase) {
+
+            document.write(frase);
+            pulaLinha();
+            }
+
+
+
+          function finalizarCompra(formaPagamento) {
+            var valorTotal = parseInt(prompt("Entre com o valor-total"));
+            calcularValorFinal(Number(valorTotal), formaPagamento);
+          }
+
+          function calcularValorFinal(valorTotal, formaPagamento) {
+            var valorFinal = 0;
+          }
+
+            
+
+          function parcelarCompra() {
+            var valorTotal = document.getElementById("valor-total").value;
+            if (valorTotal < 300) {
+              mostra("Mostrar o valor da compra: R$ " + valorTotal.toFixed(2));
+              mostra("Esse valor não parcelamos");
+              mostra("<button onclick='continuarComprando()'>Continuar comprando</button>");
+              mostra("<button onclick='finalizarCompra()'>Finalizar compra</button>");
+            } else if (valorTotal >= 300 && valorTotal < 500) {
+              mostra("Mostrar o valor da compra: R$ " + valorTotal.toFixed(2));
+              mostra("Valor parcelado em 3x: R$ " + (valorTotal / 3).toFixed(2));
+              mostra("<button onclick='continuarComprando()'>Continuar comprando</button>");
+              mostra("<button onclick='finalizarCompra()'>Finalizar compra</button>");
+            } else if (valorTotal >= 500 && valorTotal < 600) {
+              mostra("Mostrar o valor da compra: R$ " + valorTotal.toFixed(2));
+              mostra("Valor parcelado em 6x: R$ " + (valorTotal / 6).toFixed(2));
+              mostra("<button onclick='continuarComprando()'>Continuar comprando</button>");
+              mostra("<button onclick='finalizarCompra()'>Finalizar compra</button>");
+            } else if (valorTotal >= 600) {
+              mostra("Mostrar o valor da compra: R$ " + valorTotal.toFixed(2));
+              mostra("Valor parcelado em 12x: R$ " + (valorTotal / 12).toFixed(2));
+              mostra("<button onclick='continuarComprando()'>Continuar comprando</button>");
+              mostra("<button onclick='finalizarCompra()'>Finalizar compra</button>");
+            }
+  }
+
+          function compraAVista() {
+            var valorTotal = document.getElementById("valor-total").value;
+            if (valorTotal < 300) {
+              mostra("Mostrar o valor da compra: R$ " + valorTotal.toFixed(2));
+              mostra("Esse valor não possui desconto");
+              mostra("<button onclick='continuarComprando()'>Continuar comprando</button>");
+              mostra("<button onclick='finalizarCompraAVista()'>Finalizar compra</button>");
+            } else if (valorTotal >= 300 && valorTotal < 500) {
+              var valorComDesconto = valorTotal * 0.95;
+              var valorFinal = valorComDesconto;
+
+              mostra("Mostrar o valor da compra: R$ " + valorTotal.toFixed(2));
+              mostra("Valor com desconto: R$ " + valorComDesconto.toFixed(2));
+              mostra("<h2>Sua compra foi realizada com sucesso!</h2>");
+              mostra("Valor final da compra");
+            }
+          }
+                    
+            
+
+            
+          
+        </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+
+        function pulaLinha() {
+    
+            document.write("<br>");
+        }
+    
+        function mostra(frase) {
+    
+            document.write(frase);
+            pulaLinha();
+        }
+     
+        var dados = [];
+        var contador = 1; 
+        var totalDeEventos = parseInt(prompt("Informe o total de eventos"));
+        var totalGastoComEventos = 0;
+    
+        while(contador <= totalDeEventos) {
+            var gasto = parseFloat(prompt("Informe total gasto com evento"));
+    
+            if (isNaN(gasto)) {
+                 break;
+            } else {
+                dados.push(gasto);
+                totalGastoComEventos += gasto;
+            }
+            contador++;
+      }
+    
+        var media = totalGastoComEventos / totalDeEventos;
+    
+        mostra("A média de gastos é " + media);
+
+
+//O que foi corrigido:
+
+//A variável contador é usada na condição do loop while antes de ser inicializada. É necessário inicializá-la com o valor 1 antes do loop.
+//A variável totalDeEventos é usada na condição do loop while antes de ser inicializada. 
+    //É necessário solicitar ao usuário que informe o valor de totalDeEventos antes do loop.
+//A variável dado é usada no trecho var dado = parseFloat(entrada);, mas a variável entrada não foi definida antes. 
+    //Provavelmente, você queria usar a variável gasto aqui, que foi definida mais adiante.
+//A linha var totalGastoComEventos = 0; deveria estar dentro do loop while, 
+    //antes da linha var gasto = parseFloat(prompt("Informe total gasto com evento"));, para que o total de gastos seja acumulado corretamente.
+//O loop for que calcula a soma dos gastos está somando os índices da array dados ao invés dos valores armazenados nessa array. 
+    //Para corrigir isso, basta trocar contador += dados[i]; por totalGastoComEventos += dados[i];.
+//Além desses erros, há um erro de lógica no trecho que verifica se o usuário digitou o valor contador para encerrar o jogo. 
+    //Essa condição sempre será falsa, já que a variável entrada nunca é atualizada dentro do loop.
+
+    </script>
+    
+</body>
+</html>

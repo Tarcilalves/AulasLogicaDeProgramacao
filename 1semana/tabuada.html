@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+
+<script>
+
+//Criaremos a tabuada de 7, que segue um mesmo padrão, o número 7 multiplicado por outro (entre 1 e 10), 
+//ou seja, o multiplicador varia. Para isso, criaremos a variável multiplicador:
+
+
+function pulaLinha() { 
+
+    document.write("<br>"); //permite escrever conteúdo diretamente na página HTML em tempo de execução
+    document.write("<br>");
+}
+
+//Criamos uma função para imprimir as informações na página, sem precisar escrever o método document.write sempre.
+function mostra(frase) {
+
+    document.write(frase);
+    pulaLinha();
+}
+
+for(var multiplicador = 1; multiplicador <= 10; multiplicador++) {
+
+mostra(7 * multiplicador);
+
+}
+
+mostra("FIM");
+
+var quantidadeDePalavrasDoLivroQueEuCompreiAnoPassado = 0;
+
+</script>

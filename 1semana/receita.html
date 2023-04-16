@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+
+<h1>Receitas do Yan</h1>
+
+<script>
+
+//Exercício: você declara quantos igredientes irá adicionar, gera um contator da quantia de igredientes que o usuário vai adicionar
+// um por um os igredientes.
+
+    var ingredientes = []; // array vazia, ou seja, um objeto que contém uma coleção ordenada de valores.
+                 //Essa array pode posteriormente armazenar qualquer tipo de dado, como números, strings, objetos, entre outros.
+
+    var quantidade = parseInt(prompt("Quantos ingredientes você vai adicionar?")); // parseInt converte strink em número
+
+    var contador = 1;
+
+    while( contador <= quantidade) { //controla o fluxo de repetição, o código será executado enquanto for true, dentro do (é a condição)
+
+        var ingrediente = prompt("Informe o ingrediente " + contador);
+        var existe = false
+        // For é uma estrutura de controle de fluxo que permite executar um bloco de código repetidamente com base em uma condição.
+        //esta sendo usado para percorrer a array, iterar sobre objetos, ou executar qualquer tipo de operação que precise ser repetida várias vezes.
+         for(var posicao = 0; posicao < ingredientes.length; posicao++) { 
+            if(igredientes[posicao] == ingrediente){
+                existe = true;
+                break;
+            }
+         }
+         if(existe == false){
+            
+            ingredientes.push(ingrediente);
+            contador++;
+         }
+    }
+
+    console.log(ingredientes);
+</script>
