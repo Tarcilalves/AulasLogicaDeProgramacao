@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+var numeroPensado = Math.round(Math.random() * 10); // gera o número aleatório
+
+var tentativas = 1;
+while(tentativas <= 3) {
+
+    var chute = parseInt(prompt("Digite seu chute!"));
+
+    if(chute == numeroPensado) {
+
+        mostra("Você ACERTOU!, o número pensado é " + numeroPensado);
+        break; // ele para imediatamente, assim que acerta o resultado. Ele força a quebra. Poderia ser um um for(), ele támbem quebraria o loop.
+    } else {
+
+        mostra("Você ERROU");
+    }
+    tentativas++
+}
+
+mostra("o número pensado foi " + numeroPensado) // quando acerta, tem que parar de perguntar para o usuário
+</script>

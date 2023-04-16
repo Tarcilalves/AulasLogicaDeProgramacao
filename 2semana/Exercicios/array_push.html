@@ -1,0 +1,97 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+    
+    //*** OBJETIVO - Migrar o programa de uma lista de segredo fixa para ter uma lista de segredo gerado aleatoriamente. ***//
+
+    //************PROBLEMAS SOLUCIONADOS***************//
+
+    // PRIMEIRO - Tirar números dublicados
+    // SOLUÇÃO - criar um mecanismo de geração automática de segredos sem elementos dublicados 
+    function sorteia() {
+        //Invés de digitar várias vezes Math.rondom a função sortei simplificará este processo.
+       return Math.round(Math.random() * 10);
+
+    }
+
+    //*************PROBLEMAS SOLUCIONADOS**************//
+    // SEGUNDO - Fazer o número 0 não ser mais um número válido
+    //SOLUÇÃO - Resolvemos criando um teste dentro de uma condição para qual o número aleatório é diferente de 0.
+
+    function sorteiaNumeros(quantidade) {  //*** Funcão para automatizar o processo de sorteio ***//
+
+        var segredos = []; // A variável segredos inicialmente está vazia 
+
+        var numero = 1; // "numero" é uma variável que ajuda a contabilizar quantos itens já foram sorteados.
+
+        while(numero <= quantidade) { // While deverá ser repetido o mesmo número de vezes contido em quantidade, no caso 3.
+
+              var numeroAleatorio = sorteia();     //Dentro de while, será sorteado um número aleatório e, em seguida,  
+              var achou = false;                   //a varoável achou terá como valor false, indicando que ela não foi encontrada.
+                                                   // Isso porque este não foi verificado na lista de segredos.
+               
+              if (numeroAleatorio !== 0) {  //uma condição para que o número 0 não seja um número válido.
+                     for(var posicao = 0; posicao < segredos.length; posicao++) {       //Assim, percorremos a lista de segredos para sabermos se o número gerado 
+                                                                                    //está inserido nela, caso esteja:
+
+                           if(segredos[posicao] == numeroAleatorio){           // Casaso esteja inserido na lista de segredos o achou recebe true, e teremos um break 
+                                achou = true;
+                                break;                  // encerra o modo repetição se for true.
+                           }                            
+
+                     }
+
+                     if (achou == false) {              // se não achou, o elemento numeroAleatorio é inserido novamente e o incrementado é ativado. 
+                           segredos.push(numeroAleatorio);
+                           numero++;
+                     }
+                     //Com isso, temos o seguinte resultado: O programa gere 3 numeros aleatórios, 
+                     //mas se no segundo for dublicado, não pode ter um incremento da quantidade de número gerado, e sim a geração de um novo número.
+                     // ********** SOLUCIONAMOS O PROBLEMA DO NÚMERO REPETIDO **********//
+              }
+
+        }
+
+        return segredos;
+
+    }
+
+    var segredos = sorteiaNumeros(3); // Pedimos para que fossem sorteados 3 números.
+
+    console.log(segredos);
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+
+       var achou = false;
+
+       for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+              if(input.value == segredos[posicao]) {
+
+                     alert("Você ACERTOU!");
+                     achou = true;
+                     break;
+              } 
+       }
+
+       if(achou == false) {
+
+              alert("Você ERROU!");
+       }
+
+       input.value = "";
+       input.focus();
+
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>
