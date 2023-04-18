@@ -2,8 +2,9 @@ var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida Nutricionista" ;
 
 var pacientes = document.querySelectorAll(".paciente");
+var numeroPacientes = pacientes.comprimento;
 
-for(var i = 0; i < pacientes.length ; i++){
+for(var i = 0; i < numeroPacientes ; i++){
 
     var paciente = pacientes[i];
 
@@ -21,33 +22,35 @@ for(var i = 0; i < pacientes.length ; i++){
     if(!pesoEhValido){ // Usar operador de negação
         console.log("Peso inválido");
         pesoEhValido = false;
-        tdImc.textContent = "Peso inválido!";
-        
+
+        tdImc.textContent = "Peso inválido!"; 
+        paciente.classList.add("paciente-invalido");     
     }
 
     if(!alturaEhValida){
         console.log("Altura inválida");
         alturaEhValida = false;
-        tdImc.textContent = "Altura inválida!";
-        
-    }
-        // Restante do código
 
+        tdImc.textContent = "Altura inválida!"; 
+        paciente.classList.add("paciente-invalido");      
+    }
+       
         if(pesoEhValido && alturaEhValida){
-            var imc = calculaImc(peso,altura);
+            var imc = calculaImc(peso * altura);
             tdImc.textContent = imc;
         }
         
-}       
+}     
 
 function calculaImc(peso, altura){
     var imc = 0;
+
     imc = peso / (altura * altura);
+
     return imc.toFixed(2);
 }
 
-// Criar função valida peso
-function validaPeso(peso){
+function validaPeso(peso) {
 
     if (peso >= 0 && peso <= 1000) {
         return true;
@@ -56,25 +59,11 @@ function validaPeso(peso){
     }
 }
 
-// Função válida altura
 function validaAltura(altura) {
 
-    if (altura >= 0 && altura <= 3.0) {
+    if (altura >= 0 && altura <= 3.00) {
         return true;
     } else {
         return false;
     }
 }
-// Função válida paciente
-
-
-/*var botaoAdicionar = document.querySelector("#adicionar-paciente");
-botaoAdicionar.addEventListener("click", function() {
-    console.log("Fui clicado!");
-});*/
-
-
-
-
- 
-

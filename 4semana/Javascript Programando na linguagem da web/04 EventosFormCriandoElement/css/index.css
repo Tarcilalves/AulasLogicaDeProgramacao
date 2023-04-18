@@ -114,6 +114,9 @@ button  {
 
 }
 
+.paciente-invalido{
+    background-color: lightcoral;
+}
 
 button:active{
 	margin-top:0px;
